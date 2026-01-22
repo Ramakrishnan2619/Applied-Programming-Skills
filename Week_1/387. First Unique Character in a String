@@ -1,0 +1,23 @@
+class Solution {
+    public int firstUniqChar(String s) {
+
+        int[] freq = new int[26];
+        char[] arr = s.toCharArray();
+        for (int i = 0; i < arr.length; i++) {
+            char checkchar = arr[i];
+            int storeindex = checkchar - 'a';
+            freq[storeindex]++;
+            //System.out.println(storeindex);
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            char checkchar = arr[i];
+            int storeindex = checkchar - 'a';
+
+            if (freq[storeindex] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
